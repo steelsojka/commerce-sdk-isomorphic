@@ -123,9 +123,7 @@ export const DesignProvider = ({
 
   return (
     <DesignContext.Provider value={contextValue}>
-      <DesignStateProvider>
-        <div className="pd-design-base">{children}</div>
-      </DesignStateProvider>
+      <DesignStateProvider>{children}</DesignStateProvider>
     </DesignContext.Provider>
   );
 };
