@@ -97,7 +97,17 @@
       "import": "./lib/version.js",
       "require": "./lib/version.cjs.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./design": {
+      "import": "./lib/design/esm/index.js",
+      "require": "./lib/design/cjs/index.js",
+      "types": "./lib/design/esm/index.d.ts"
+    },
+    "./design/react": {
+      "import": "./lib/design/esm/react/index.js",
+      "require": "./lib/design/cjs/react/index.js",
+      "types": "./lib/design/esm/react/index.d.ts"
+    }
   },
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
@@ -109,7 +119,7 @@
   ],
   "scripts": {
     "build": "react-scripts build",
-    "build:lib": "ts-node --compiler-options '{\"module\": \"commonjs\", \"target\": \"ES6\" }' ./scripts/generateFileList.ts && rollup -c",
+    "build:lib": "rollup -c",
     "check:size": "npm-pack-all --output commerce-sdk-isomorphic-with-deps.tgz && bundlesize",
     "check:types": "tsc --noEmit",
     "ci": "rm -rf node_modules && yarn install",
