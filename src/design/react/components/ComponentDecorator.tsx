@@ -65,13 +65,17 @@ export function createReactComponentDesignDecorator<TProps>(
       [setSelectedComponent, componentId]
     );
 
-    const handleDelete = useCallback(() => {
-      deleteComponent({
-        componentId,
-        sourceComponentId: parentId ?? '',
-        sourceRegionId: regionId ?? '',
-      });
-    }, [deleteComponent, componentId]);
+    const handleDelete = useCallback(
+      (e: React.MouseEvent) => {
+	e.stopPropagation();
+	deleteComponent({
+	  componentId,
+	  sourceComponentId: parentId ?? '',
+	  sourceRegionId: regionId ?? '',
+	});
+      },
+      [deleteComponent, componentId]
+    );
 
     const showFrame = [selectedComponentId, hoveredComponentId].includes(
       componentId

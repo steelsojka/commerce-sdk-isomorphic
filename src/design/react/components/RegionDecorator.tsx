@@ -21,7 +21,7 @@ export function createReactRegionDesignDecorator<TProps>(
     }
 
     return (
-      <div className="pd-region">
+      <div className="pd-design--region">
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Region {...(componentProps as TProps)}>{children}</Region>
       </div>
